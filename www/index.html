@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Google SSO sample</title>
+	<link href="//netdna.bootstrapcdn.com/bootswatch/2.3.0/cerulean/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="../SSO.directive.js"></script>
+	<script src="../SSO.service.js"></script>
+	<script src="app.js"></script>
+</head>
+<body class="container" ng-app="sample">
+	<h1>Angular Google Plus Sign-in Directive</h1>
+
+	<hr>
+
+	<h2>Usage</h2>
+
+	<div class="row">
+		<div class="span12">
+			<ol>
+				<li>Include <code>SSO.js</code>.</li>
+				<li>Add <code>GoogleSSO</code> as a dependency to your app and inject SSO into login controller.</li>
+				<li>Add <code>&lt;google-sign-in clientid="your-client-id"&gt;</code></li>
+				<li>SSO.loggedIn is a promise that resolves when authenitcated and rejects when authentication fails</li>
+			</ol>
+		</div>
+	</div>
+
+	<hr>
+	<div class="row" ng-controller="ExampleCtrl as vm">
+		<div class="span6">
+			<div ng-hide="vm.signedIn">
+				<google-sign-in clientid="55038496778-2h3o9s09pibo4b0paqge0pesfqg9fgc0"></google-sign-in>
+				<p>This is the sign-in button</p>
+			</div>
+			{{vm.greeting}}
+			<div ng-show="vm.signedIn">
+				Signed In as {{vm.user.zt}}!
+			</div>
+			<div ng-hide="vm.signedIn">
+				Not Signed In!
+			</div>
+		</div>
+	</div>
+</body>
+</html>
